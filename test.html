@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Selamat Hari Kelahiran! 🌿</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #cce7e8, #f8d8c4, #f4e1c8);
+            font-family: "Georgia", serif;
+            text-align: center;
+            position: relative;
+        }
+
+        .container {
+            position: static;
+            z-index: 10;
+            max-width: 90%;
+            padding: 30px; /* Tambah ruang di sekeliling kandungan */
+            background: rgba(255, 255, 255, 0.7); /* Latar belakang lembut */
+            border-radius: 15px; /* Membulatkan tepi */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Bayang lembut */
+        }
+
+        .container h1 {
+            font-size: 3.5rem;
+            color: #8b5e3b;
+            text-shadow: 0 0 15px rgba(139, 94, 59, 0.6);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .container p {
+            font-size: 1.4rem;
+            color: #5a4633;
+            animation: fadeInUp 2s ease-in-out;
+            max-width: 700px;
+            margin: 15px auto;
+            line-height: 1.8;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(139, 94, 59, 0.4); }
+            to { text-shadow: 0 0 30px rgba(139, 94, 59, 0.8); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 80px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(255,192,159,0.9));
+            border-radius: 50%;
+            animation: floatUp 6s linear infinite;
+        }
+
+        .balloon:nth-child(2) { left: 15%; background: #a0c4ff; animation-duration: 7s; }
+        .balloon:nth-child(3) { left: 35%; background: #f4cda5; animation-duration: 8s; }
+        .balloon:nth-child(4) { left: 55%; background: #ffdcae; animation-duration: 5.5s; }
+        .balloon:nth-child(5) { left: 75%; background: #c1dfc4; animation-duration: 7.5s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-250px) scale(1.05); opacity: 0.9; }
+            100% { transform: translateY(-500px) scale(1.1); opacity: 0; }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: randomColor();
+            opacity: 0.7;
+            animation: confettiFall 4s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ucapan Hari Kelahiran -->
+    <div class="container">
+        <h1>✨ Selamat Hari Kelahiran! ✨</h1>
+        <p> 
+            Tatkala fajar menyingsing di ufuk timur,  
+            Seiring bayu berbisik syahdu,  
+            Maka lahirlah dikau ke dunia nan makmur,  
+            Membawa sinar cahaya yang baharu.  
+        </p>
+        <p> 
+            Hari ini ulanglah masa nan indah,  
+            Setahun berlalu dengan penuh makna,  
+            Semoga dikau diberi hikmah,  
+            Rezeki melimpah, bahagia selamanya.  
+        </p>
+        <p> 
+            Seperti bulan memancar cahaya,  
+            Seperti bintang menari di angkasa,  
+            Semoga hatimu sentiasa ceria,  
+            Diberkati Tuhan sepanjang masa.  
+        </p>
+        <p> 
+            Moga usiamu penuh keberkatan,  
+            Dengan rahmat Tuhan tiada hentinya,  
+            Hati sentiasa dalam ketenangan,  
+            Dalam lindungan kasih dan cinta-Nya. 🌿  
+        </p>
+    </div>
+
+    <!-- Belon Terapung -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <script>
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.className = "confetti";
+                document.body.appendChild(confetti);
+
+                // Posisi rawak
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.top = -Math.random() * 50 + "px";
+
+                // Warna pastel lembut
+                let pastelColors = ["#F4D3C4", "#D9E4F5", "#B5EAD7", "#F3C5C5"];
+                confetti.style.backgroundColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+
+                // Animasi rawak
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + "s";
+                confetti.style.animationDelay = Math.random() * 2 + "s";
+
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        setInterval(createConfetti, 1500);
+    </script>
+
+</body>
+</html>
